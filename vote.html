@@ -1,0 +1,19 @@
+<!-- Add this to display the list of ballots and parties in the voting form -->
+<form method="post" action="{{ url_for('vote') }}">
+    <label for="ballotIndex">Select Ballot:</label>
+    <select name="ballotIndex" id="ballotIndex">
+      {% for ballot in ballots %}
+        <option value="{{ loop.index0 }}">{{ ballot }}</option>
+      {% endfor %}
+    </select>
+  
+    <label for="partyIndex">Select Party:</label>
+    <select name="partyIndex" id="partyIndex">
+      {% for party in parties %}
+        <option value="{{ loop.index0 }}">{{ party }}</option>
+      {% endfor %}
+    </select>
+  
+    <input type="submit" value="Vote">
+  </form>
+  

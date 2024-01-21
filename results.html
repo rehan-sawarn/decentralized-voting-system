@@ -1,0 +1,11 @@
+<!-- to display the voting results -->
+<h2>Voting Results:</h2>
+<ul>
+  {% for result in results %}
+    <li>{{ result['name'] }}: {{ result['votes'] }} votes</li>
+  {% endfor %}
+</ul>
+
+<!-- to display the pie chart -->
+<img src="data:image/png;base64,{{ img_base64 }}" alt="Voting Results Pie Chart">
+

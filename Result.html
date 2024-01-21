@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Agencies Results</title>
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Add some basic styling if needed */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #60484800; /* Smoothing background color */
+            padding-left: 50px; /* Space for the logo on the left */
+            background: #03d0696f;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chart {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Result Declaration:</h1>
+        
+    </div>
+
+    <div class="chart-container">
+        <div class="chart">
+            <h2>Pie Chart</h2>
+            <canvas id="pieChart" width="400" height="400"></canvas>
+        </div>
+
+        <div class="chart">
+            <h2>Bar Chart</h2>
+            <canvas id="barChart" width="400" height="400"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Your data for the pie chart
+        var pieChartData = {
+            labels: ['Party 1', 'Party 2', 'Party 3', 'Party 4'],
+            datasets: [{
+                data: [30, 20, 25, 25], // Adjust values as needed
+                backgroundColor: ['#ff9999', '#66b3ff', '#99ff99', '#ffcc99'], // Customize colors
+            }]
+        };
+
+        // Your data for the bar chart (using the same data for illustration)
+        var barChartData = {
+            labels: ['Party 1', 'Party 2', 'Party 3', 'Party 4'],
+            datasets: [{
+                label: 'Bar Chart',
+                data: [30, 20, 25, 25], // Adjust values as needed
+                backgroundColor: ['#ff9999', '#66b3ff', '#99ff99', '#ffcc99'], // Customize colors
+            }]
+        };
+
+        // Get the context of the pie chart canvas element
+        var pieCtx = document.getElementById('pieChart').getContext('2d');
+
+        // Create the pie chart
+        var pieChart = new Chart(pieCtx, {
+            type: 'pie',
+            data: pieChartData,
+            options: {
+                responsive: false,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                },
+            },
+        });
+
+        // Get the context of the bar chart canvas element
+        var barCtx = document.getElementById('barChart').getContext('2d');
+
+        // Create the bar chart
+        var barChart = new Chart(barCtx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: false,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                },
+            },
+        });
+    </script>
+</body>
+</html>
